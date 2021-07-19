@@ -6,19 +6,13 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:07:24 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 18:33:16 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 18:37:15 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include <unistd.h>
 #include "libft.h"
-
-
-static void	putnbr_color(int nbr)
-{
-	ft_putnbr(nbr);
-}
 
 void	print_instr(char *instr, t_opt opt)
 {
@@ -44,7 +38,7 @@ void	print_a(t_piles piles, t_opt opt, int imin, int imax)
 		if (i < imin)
 			ft_putnbr(piles.a[i++]);
 		else if (i >= imin && i <= imax)
-			putnbr_color(piles.a[i++]);
+			ft_putnbr((piles.a[i++]));
 		else
 			ft_putnbr(piles.a[i++]);
 		ft_putchar(' ');
@@ -73,7 +67,7 @@ void	print_b(t_piles piles, t_opt opt, int imin, int imax)
 		if (i < imin)
 			ft_putnbr(piles.b[i++]);
 		else if (i >= imin && i <= imax)
-			putnbr_color(piles.b[i++]);
+			ft_putnbr((piles.b[i++]));
 		else
 			ft_putnbr(piles.b[i++]);
 		ft_putchar(' ');
