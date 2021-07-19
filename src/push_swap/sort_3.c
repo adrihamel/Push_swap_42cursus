@@ -6,11 +6,31 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:18:48 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 19:03:22 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:20:25 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	aux(t_stack *stack, int len, t_opt opt)
+{
+	while (len != 3 || !(stack->a[0] < stack->a[1] \
+				&& stack->a[1] < stack->a[2]))
+	{
+		if (len == 3 && stack->a[0] > stack->a[1] && stack->a[2])
+			sa(stack, opt);
+		else if (len == 3 && !(stack->a[2] > stack->a[0] \
+					&& stack->a[2] > stack->a[1]))
+		{
+			pb(stack, opt);
+			len--;
+		}
+		else if (stack->a[0] > stack->a[1])
+			sa(stack, opt);
+		else if (len++)
+			pa(stack, opt);
+	}
+}
 
 static void	quick_sort_3(t_stack *stack, t_fun *fun_list, t_opt opt)
 {
@@ -45,24 +65,7 @@ void	sort_3(t_stack *stack, t_fun *fun_list, int len, t_opt opt)
 			sa(stack, opt);
 	}
 	else if (len == 3)
-	{
-		while (len != 3 || !(stack->a[0] < stack->a[1] \
-					&& stack->a[1] < stack->a[2]))
-		{
-			if (len == 3 && stack->a[0] > stack->a[1] && stack->a[2])
-				sa(stack, opt);
-			else if (len == 3 && !(stack->a[2] > stack->a[0] \
-						&& stack->a[2] > stack->a[1]))
-			{
-				pb(stack, opt);
-				len--;
-			}
-			else if (stack->a[0] > stack->a[1])
-				sa(stack, opt);
-			else if (len++)
-				pa(stack, opt);
-		}
-	}
+		aux(stack, len, opt);
 }
 
 void	push_sort_3(t_stack *stack, t_fun *fun_list, int len, t_opt opt)
