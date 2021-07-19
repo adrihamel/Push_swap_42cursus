@@ -6,103 +6,103 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:04:46 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 18:04:48 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:02:40 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void	ra(t_piles *piles, t_opt opt)
+void	ra(t_stack *stack, t_opt opt)
 {
 	int		i;
 	int		tmp;
 
 	print_instr("ra", opt);
-	if (piles->alen > 1)
+	if (stack->alen > 1)
 	{
-		tmp = piles->a[0];
+		tmp = stack->a[0];
 		i = -1;
-		while (++i < piles->alen - 1)
-			piles->a[i] = piles->a[i + 1];
-		piles->a[piles->alen - 1] = tmp;
-		print_a(*piles, opt, piles->alen - 1, piles->alen - 1);
+		while (++i < stack->alen - 1)
+			stack->a[i] = stack->a[i + 1];
+		stack->a[stack->alen - 1] = tmp;
+		print_a(*stack, opt, stack->alen - 1, stack->alen - 1);
 	}
 	else
-		print_a(*piles, opt, -1, -1);
-	print_b(*piles, opt, -1, -1);
+		print_a(*stack, opt, -1, -1);
+	print_b(*stack, opt, -1, -1);
 }
 
-void	rb(t_piles *piles, t_opt opt)
+void	rb(t_stack *stack, t_opt opt)
 {
 	int		i;
 	int		tmp;
 
 	print_instr("rb", opt);
-	print_a(*piles, opt, -1, -1);
-	if (piles->blen > 1)
+	print_a(*stack, opt, -1, -1);
+	if (stack->blen > 1)
 	{
-		tmp = piles->b[0];
+		tmp = stack->b[0];
 		i = -1;
-		while (++i < piles->blen - 1)
-			piles->b[i] = piles->b[i + 1];
-		piles->b[piles->blen - 1] = tmp;
-		print_b(*piles, opt, piles->blen - 1, piles->blen - 1);
+		while (++i < stack->blen - 1)
+			stack->b[i] = stack->b[i + 1];
+		stack->b[stack->blen - 1] = tmp;
+		print_b(*stack, opt, stack->blen - 1, stack->blen - 1);
 	}
 	else
-		print_b(*piles, opt, -1, -1);
+		print_b(*stack, opt, -1, -1);
 }
 
-void	rr(t_piles *piles, t_opt opt)
+void	rr(t_stack *stack, t_opt opt)
 {
 	print_instr("rr", opt);
-	ra(piles, NONE);
-	rb(piles, NONE);
-	if (piles->alen > 1)
-		print_a(*piles, opt, piles->alen - 1, piles->alen - 1);
+	ra(stack, NONE);
+	rb(stack, NONE);
+	if (stack->alen > 1)
+		print_a(*stack, opt, stack->alen - 1, stack->alen - 1);
 	else
-		print_a(*piles, opt, -1, -1);
-	if (piles->blen > 1)
-		print_b(*piles, opt, piles->blen - 1, piles->blen - 1);
+		print_a(*stack, opt, -1, -1);
+	if (stack->blen > 1)
+		print_b(*stack, opt, stack->blen - 1, stack->blen - 1);
 	else
-		print_b(*piles, opt, -1, -1);
+		print_b(*stack, opt, -1, -1);
 }
 
-void	rra(t_piles *piles, t_opt opt)
+void	rra(t_stack *stack, t_opt opt)
 {
 	int		i;
 	int		tmp;
 
 	print_instr("rra", opt);
-	if (piles->alen > 1)
+	if (stack->alen > 1)
 	{
-		tmp = piles->a[piles->alen - 1];
-		i = piles->alen;
+		tmp = stack->a[stack->alen - 1];
+		i = stack->alen;
 		while (--i > 0)
-			piles->a[i] = piles->a[i - 1];
-		piles->a[0] = tmp;
-		print_a(*piles, opt, 0, 0);
+			stack->a[i] = stack->a[i - 1];
+		stack->a[0] = tmp;
+		print_a(*stack, opt, 0, 0);
 	}
 	else
-		print_a(*piles, opt, -1, -1);
-	print_b(*piles, opt, -1, -1);
+		print_a(*stack, opt, -1, -1);
+	print_b(*stack, opt, -1, -1);
 }
 
-void	rrb(t_piles *piles, t_opt opt)
+void	rrb(t_stack *stack, t_opt opt)
 {
 	int		i;
 	int		tmp;
 
 	print_instr("rrb", opt);
-	print_a(*piles, opt, -1, -1);
-	if (piles->blen > 1)
+	print_a(*stack, opt, -1, -1);
+	if (stack->blen > 1)
 	{
-		tmp = piles->b[piles->blen - 1];
-		i = piles->blen;
+		tmp = stack->b[stack->blen - 1];
+		i = stack->blen;
 		while (--i > 0)
-			piles->b[i] = piles->b[i - 1];
-		piles->b[0] = tmp;
-		print_b(*piles, opt, 0, 0);
+			stack->b[i] = stack->b[i - 1];
+		stack->b[0] = tmp;
+		print_b(*stack, opt, 0, 0);
 	}
 	else
-		print_b(*piles, opt, -1, -1);
+		print_b(*stack, opt, -1, -1);
 }

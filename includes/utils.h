@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/18 20:31:26 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 18:31:05 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:07:32 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 
 # define INT_MAX 2147483647
 
-typedef struct s_piles
+typedef struct s_stack
 {
 	int		*a;
 	int		*b;
 	int		alen;
 	int		blen;
-}				t_piles;
+}				t_stack;
 
 typedef enum e_opt
 {
@@ -39,28 +39,28 @@ typedef enum e_opt
 
 typedef struct s_fun {
 	char	*instr;
-	void	(*f)(t_piles *, t_opt);
+	void	(*f)(t_stack *, t_opt);
 }				t_fun;
 
-int				*get_pile(char **input, int *len);
+int				*get_stack(char **input, int *len);
 t_opt			get_opt(int *ac, char ***av, int get_stream, t_file **stream);
 t_fun			*initialize_fun_list(void);
 void			delete_funlist(t_fun *fun_list);
-int				follow_instructions(t_piles *piles, t_fun *fun_list, \
+int				follow_instructions(t_stack *stack, t_fun *fun_list, \
 									char *instr, t_opt opt);
-void			sa(t_piles *piles, t_opt opt);
-void			sb(t_piles *piles, t_opt opt);
-void			ss(t_piles *piles, t_opt opt);
-void			pa(t_piles *piles, t_opt opt);
-void			pb(t_piles *piles, t_opt opt);
-void			ra(t_piles *piles, t_opt opt);
-void			rb(t_piles *piles, t_opt opt);
-void			rr(t_piles *piles, t_opt opt);
-void			rra(t_piles *piles, t_opt opt);
-void			rrb(t_piles *piles, t_opt opt);
-void			rrr(t_piles *piles, t_opt opt);
+void			sa(t_stack *stack, t_opt opt);
+void			sb(t_stack *stack, t_opt opt);
+void			ss(t_stack *stack, t_opt opt);
+void			pa(t_stack *stack, t_opt opt);
+void			pb(t_stack *stack, t_opt opt);
+void			ra(t_stack *stack, t_opt opt);
+void			rb(t_stack *stack, t_opt opt);
+void			rr(t_stack *stack, t_opt opt);
+void			rra(t_stack *stack, t_opt opt);
+void			rrb(t_stack *stack, t_opt opt);
+void			rrr(t_stack *stack, t_opt opt);
 void			print_instr(char *instr, t_opt opt);
-void			print_a(t_piles piles, t_opt opt, int imin, int imax);
-void			print_b(t_piles piles, t_opt opt, int imin, int imax);
+void			print_a(t_stack stack, t_opt opt, int imin, int imax);
+void			print_b(t_stack stack, t_opt opt, int imin, int imax);
 
 #endif

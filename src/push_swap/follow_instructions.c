@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:05:20 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 18:07:12 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:05:18 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	leninstr(char *instr)
 	return (len);
 }
 
-int	follow_instructions(t_piles *piles, t_fun *fun_list,
+int	follow_instructions(t_stack *stack, t_fun *fun_list,
 		char *instr, t_opt opt)
 {
 	int		i;
@@ -39,7 +39,7 @@ int	follow_instructions(t_piles *piles, t_fun *fun_list,
 		{
 			if (ft_strnequ(instr, fun_list[i].instr, leninstr(instr)))
 			{
-				fun_list[i].f(piles, opt);
+				fun_list[i].f(stack, opt);
 				instr_found = 1;
 			}
 		}

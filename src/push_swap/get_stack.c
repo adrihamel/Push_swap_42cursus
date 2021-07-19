@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_pile.c                                         :+:      :+:    :+:   */
+/*   get_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:08:41 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 18:14:56 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:06:01 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-static int	is_unique(int *pile, int index)
+static int	is_unique(int *stack, int index)
 {
 	int		i;
 
 	i = -1;
 	while (++i < index)
-		if (pile[i] == pile[index])
+		if (stack[i] == stack[index])
 			return (0);
 	return (1);
 }
@@ -97,7 +97,7 @@ int	get_ttl_len(char **input, int len)
 	return (res);
 }
 
-int	*get_pile(char **input, int *len)
+int	*get_stack(char **input, int *len)
 {
 	int		*res;
 	int		ttl_len;

@@ -6,13 +6,13 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:03:21 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 18:03:41 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:04:57 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_mediane(int *mediane, int *pile, int len)
+int	get_mediane(int *mediane, int *stack, int len)
 {
 	int		*cache;
 	int		i;
@@ -22,7 +22,7 @@ int	get_mediane(int *mediane, int *pile, int len)
 		return (0);
 	i = -1;
 	while (++i < len)
-		cache[i] = pile[i];
+		cache[i] = stack[i];
 	reg_quick_sort(cache, len);
 	*mediane = cache[len / 2];
 	free(cache);

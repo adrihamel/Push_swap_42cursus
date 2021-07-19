@@ -6,89 +6,89 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:18:48 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 18:19:56 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:03:22 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	quick_sort_3(t_piles *piles, t_fun *fun_list, t_opt opt)
+static void	quick_sort_3(t_stack *stack, t_fun *fun_list, t_opt opt)
 {
-	if (piles->a[0] < piles->a[1] && piles->a[0] < piles->a[2])
+	if (stack->a[0] < stack->a[1] && stack->a[0] < stack->a[2])
 	{
-		if (piles->a[1] > piles->a[2])
-			follow_instructions(piles, fun_list, "rra sa", opt);
+		if (stack->a[1] > stack->a[2])
+			follow_instructions(stack, fun_list, "rra sa", opt);
 	}
-	else if (piles->a[0] > piles->a[1] && piles->a[0] > piles->a[2])
+	else if (stack->a[0] > stack->a[1] && stack->a[0] > stack->a[2])
 	{
-		if (piles->a[1] < piles->a[2])
-			ra(piles, opt);
+		if (stack->a[1] < stack->a[2])
+			ra(stack, opt);
 		else
-			follow_instructions(piles, fun_list, "sa rra", opt);
+			follow_instructions(stack, fun_list, "sa rra", opt);
 	}
 	else
 	{
-		if (piles->a[1] < piles->a[2])
-			sa(piles, opt);
+		if (stack->a[1] < stack->a[2])
+			sa(stack, opt);
 		else
-			rra(piles, opt);
+			rra(stack, opt);
 	}
 }
 
-void	sort_3(t_piles *piles, t_fun *fun_list, int len, t_opt opt)
+void	sort_3(t_stack *stack, t_fun *fun_list, int len, t_opt opt)
 {
-	if (len == 3 && piles->alen == 3)
-		quick_sort_3(piles, fun_list, opt);
+	if (len == 3 && stack->alen == 3)
+		quick_sort_3(stack, fun_list, opt);
 	else if (len == 2)
 	{
-		if (piles->a[0] > piles->a[1])
-			sa(piles, opt);
+		if (stack->a[0] > stack->a[1])
+			sa(stack, opt);
 	}
 	else if (len == 3)
 	{
-		while (len != 3 || !(piles->a[0] < piles->a[1] \
-					&& piles->a[1] < piles->a[2]))
+		while (len != 3 || !(stack->a[0] < stack->a[1] \
+					&& stack->a[1] < stack->a[2]))
 		{
-			if (len == 3 && piles->a[0] > piles->a[1] && piles->a[2])
-				sa(piles, opt);
-			else if (len == 3 && !(piles->a[2] > piles->a[0] \
-						&& piles->a[2] > piles->a[1]))
+			if (len == 3 && stack->a[0] > stack->a[1] && stack->a[2])
+				sa(stack, opt);
+			else if (len == 3 && !(stack->a[2] > stack->a[0] \
+						&& stack->a[2] > stack->a[1]))
 			{
-				pb(piles, opt);
+				pb(stack, opt);
 				len--;
 			}
-			else if (piles->a[0] > piles->a[1])
-				sa(piles, opt);
+			else if (stack->a[0] > stack->a[1])
+				sa(stack, opt);
 			else if (len++)
-				pa(piles, opt);
+				pa(stack, opt);
 		}
 	}
 }
 
-void	push_sort_3(t_piles *piles, t_fun *fun_list, int len, t_opt opt)
+void	push_sort_3(t_stack *stack, t_fun *fun_list, int len, t_opt opt)
 {
 	if (len == 1)
-		pa(piles, opt);
+		pa(stack, opt);
 	else if (len == 2)
 	{
-		if (piles->b[0] < piles->b[1])
-			sb(piles, opt);
-		follow_instructions(piles, fun_list, "pa pa", opt);
+		if (stack->b[0] < stack->b[1])
+			sb(stack, opt);
+		follow_instructions(stack, fun_list, "pa pa", opt);
 	}
 	else if (len == 3)
 	{
-		while (len || !(piles->a[0] < piles->a[1] && piles->a[1] < piles->a[2]))
+		while (len || !(stack->a[0] < stack->a[1] && stack->a[1] < stack->a[2]))
 		{
-			if (len == 1 && piles->a[0] > piles->a[1])
-				sa(piles, opt);
-			else if (len == 1 || (len >= 2 && piles->b[0] > piles->b[1]) \
-					|| (len == 3 && piles->b[0] > piles->b[2]))
+			if (len == 1 && stack->a[0] > stack->a[1])
+				sa(stack, opt);
+			else if (len == 1 || (len >= 2 && stack->b[0] > stack->b[1]) \
+					|| (len == 3 && stack->b[0] > stack->b[2]))
 			{
-				pa(piles, opt);
+				pa(stack, opt);
 				len--;
 			}
 			else
-				sb(piles, opt);
+				sb(stack, opt);
 		}
 	}
 }

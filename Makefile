@@ -6,7 +6,7 @@
 #    By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/18 16:41:40 by aguerrer          #+#    #+#              #
-#    Updated: 2021/07/18 17:12:22 by aguerrer         ###   ########.fr        #
+#    Updated: 2021/07/19 19:07:59 by aguerrer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ PUSHSWAPFD 		= push_swap/
 SRCSFD 			= src/
 PUSHSWAP_SRC 	= main.c is_sorted.c quick_sort.c sort_3.c get_mediane.c \
 			      reg_quick_sort.c follow_instructions.c fun_list.c \
-			      get_opt.c get_pile.c instructions1.c instructions2.c \
+			      get_opt.c get_stack.c instructions1.c instructions2.c \
 			      instructions3.c print.c
 
 OBJSFD 			= objs/
