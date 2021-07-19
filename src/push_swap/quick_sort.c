@@ -6,11 +6,33 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:20:17 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 19:03:43 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 22:02:55 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	aux2(t_stack *stack, t_fun *fun_list, int len, t_opt opt)
+{
+	if (len <= 3)
+	{
+		push_sort_3(stack, fun_list, len, opt);
+		return (1);
+	}
+	else
+		return (0);
+}
+
+int	aux(t_stack *stack, t_fun *fun_list, int len, t_opt opt)
+{
+	if (len <= 3)
+	{
+		sort_3(stack, fun_list, len, opt);
+		return (1);
+	}
+	else
+		return (0);
+}
 
 int	quick_sort_a(t_stack *stack, t_fun *fun_list, int len, t_opt opt)
 {
@@ -21,11 +43,8 @@ int	quick_sort_a(t_stack *stack, t_fun *fun_list, int len, t_opt opt)
 	if (is_sorted(stack->a, len, ASCENDING))
 		return (1);
 	nb_elem = len;
-	if (len <= 3)
-	{
-		sort_3(stack, fun_list, len, opt);
+	if (aux(stack, fun_list, len, opt) == 1)
 		return (1);
-	}
 	pushed_under = 0;
 	if (!get_mediane(&mediane, stack->a, len))
 		return (0);
@@ -53,11 +72,8 @@ int	quick_sort_b(t_stack *stack, t_fun *fun_list, int len, t_opt opt)
 	if (is_sorted(stack->b, len, DESCENDING))
 		while (len--)
 			pa(stack, opt);
-	if (len <= 3)
-	{
-		push_sort_3(stack, fun_list, len, opt);
+	if (aux2(stack, fun_list, len, opt) == 1)
 		return (1);
-	}
 	nb_elem = len;
 	if (!get_mediane(&mediane, stack->b, len))
 		return (0);
