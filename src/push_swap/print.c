@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:07:24 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 18:08:19 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 18:33:16 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,16 @@
 #include <unistd.h>
 #include "libft.h"
 
-static void	write_color(char *str)
-{
-	ft_putstr("\033[0;31m");
-	ft_putstr(str);
-	ft_putstr("\033[0;m\n");
-}
 
 static void	putnbr_color(int nbr)
 {
-	ft_putstr("\033[0;31m");
 	ft_putnbr(nbr);
-	ft_putstr("\033[0;m");
 }
 
 void	print_instr(char *instr, t_opt opt)
 {
 	if (opt == NONE)
 		return ;
-	else if (opt == COLOR)
-		write_color(instr);
 	else
 	{
 		ft_putstr(instr);
@@ -49,7 +39,7 @@ void	print_a(t_piles piles, t_opt opt, int imin, int imax)
 		return ;
 	ft_putstr("a :\t");
 	i = 0;
-	while (opt == COLOR && imin >= 0 && imax >= imin && i < piles.alen)
+	while (imin >= 0 && imax >= imin && i < piles.alen)
 	{
 		if (i < imin)
 			ft_putnbr(piles.a[i++]);
@@ -78,7 +68,7 @@ void	print_b(t_piles piles, t_opt opt, int imin, int imax)
 		return ;
 	ft_putstr("b :\t");
 	i = 0;
-	while (opt == COLOR && imin >= 0 && imax >= imin && i < piles.blen)
+	while (imin >= 0 && imax >= imin && i < piles.blen)
 	{
 		if (i < imin)
 			ft_putnbr(piles.b[i++]);

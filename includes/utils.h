@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/18 20:31:26 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/18 20:37:55 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/19 18:31:05 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ typedef enum e_opt
 {
 	NONE,
 	INSTR_ONLY,
-	VISUAL,
-	COLOR,
 	ERROR
 }				t_opt;
 
