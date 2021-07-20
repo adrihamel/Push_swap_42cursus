@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:15:13 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/20 22:51:16 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/20 22:54:21 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 t_opt	get_opt(int *argc, char ***argv)
 {
-	int		i;
-
 	while (--(*argc) && (++(*argv))[0][0] == '-')
 	{
-		i = 0;
 		if (!(*argv)[0][1])
 			return (ERROR);
 		if ((*argv)[0][1] >= '0' && (*argv)[0][1] <= '9')
