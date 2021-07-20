@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:08:41 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 19:06:01 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/20 23:12:56 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,59 +23,59 @@ static int	is_unique(int *stack, int index)
 	return (1);
 }
 
-static int	go_to_start(char ***input)
+static int	go_to_start(char ***argv)
 {
 	int		sign;
 
-	while ((***input < '0' || ***input > '9') && ***input != '-')
+	while ((***argv < '0' || ***argv > '9') && ***argv != '-')
 	{
-		if (!***input)
-			(*input)++;
-		else if (***input == ' ' || ***input == '\t')
-			(**input)++;
+		if (!***argv)
+			(*argv)++;
+		else if (***argv == ' ' || ***argv == '\t')
+			(**argv)++;
 		else
 			return (0);
 	}
-	if (***input == '-')
+	if (***argv == '-')
 		sign = -1;
 	else
 		sign = 1;
-	if (***input == '-')
-		**input += 1;
-	if (***input < '0' || ***input > '9')
+	if (***argv == '-')
+		**argv += 1;
+	if (***argv < '0' || ***argv > '9')
 		return (0);
 	return (sign);
 }
 
-static int	get_number(int *nbr, char ***input)
+static int	get_number(int *nbr, char ***argv)
 {
 	int		sign;
 
 	*nbr = 0;
-	sign = go_to_start(input);
+	sign = go_to_start(argv);
 	if (!sign)
 		return (0);
-	while (***input >= '0' && ***input <= '9')
+	while (***argv >= '0' && ***argv <= '9')
 	{
-		if (*nbr > INT_MAX / 10 || (*nbr == INT_MAX / 10 && (***input > '8' \
-				|| (***input == '8' && sign == 1))))
+		if (*nbr > INT_MAX / 10 || (*nbr == INT_MAX / 10 && (***argv > '8' \
+				|| (***argv == '8' && sign == 1))))
 			return (0);
-		else if (*nbr == INT_MAX / 10 && ***input == '8' && sign == -1)
+		else if (*nbr == INT_MAX / 10 && ***argv == '8' && sign == -1)
 		{
 			sign = 1;
 			*nbr = -10 * *nbr - 8;
 		}
 		else
-			*nbr = 10 * *nbr + ***input - '0';
-		(**input)++;
+			*nbr = 10 * *nbr + ***argv - '0';
+		(**argv)++;
 	}
-	if (***input != ' ' && ***input != 0 && ***input != '\t')
+	if (***argv != ' ' && ***argv != 0 && ***argv != '\t')
 		return (0);
 	*nbr *= sign;
 	return (1);
 }
 
-int	get_ttl_len(char **input, int len)
+int	get_ttl_len(char *argv[], int len)
 {
 	int		res;
 	int		i;
@@ -86,31 +86,31 @@ int	get_ttl_len(char **input, int len)
 	while (++i < len)
 	{
 		j = -1;
-		while (input[i][++j])
+		while (argv[i][++j])
 		{
-			if (j == 0 && input[i][j] != ' ')
+			if (j == 0 && argv[i][j] != ' ')
 				res += 1;
-			else if (input[i][j] != ' ' && input[i][j - 1] == ' ')
+			else if (argv[i][j] != ' ' && argv[i][j - 1] == ' ')
 				res += 1;
 		}
 	}
 	return (res);
 }
 
-int	*get_stack(char **input, int *len)
+int	*get_stack(char *argv[], int *len)
 {
 	int		*res;
 	int		ttl_len;
 	int		i;
 
-	ttl_len = get_ttl_len(input, *len);
+	ttl_len = get_ttl_len(argv, *len);
 	res = (int *)malloc(sizeof(int) * ttl_len);
 	if (!res)
 		return (NULL);
 	i = -1;
 	while (++i < ttl_len)
 	{
-		if (!get_number(res + i, &input) || !is_unique(res, i))
+		if (!get_number(res + i, &argv) || !is_unique(res, i))
 		{
 			free(res);
 			return (NULL);

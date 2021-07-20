@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/18 20:31:26 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/20 22:51:31 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/20 23:13:22 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,5 @@ void			rrr(t_stack *stack, t_opt opt);
 void			print_instr(char *instr, t_opt opt);
 void			print_a(t_stack stack, t_opt opt, int imin, int imax);
 void			print_b(t_stack stack, t_opt opt, int imin, int imax);
-
 
 #endif
