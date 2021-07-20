@@ -6,7 +6,7 @@
 #    By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/18 18:49:11 by aguerrer          #+#    #+#              #
-#    Updated: 2021/07/18 20:24:07 by aguerrer         ###   ########.fr        #
+#    Updated: 2021/07/20 17:23:37 by aguerrer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,4 +60,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re project
+.PHONY: all clean fclean re

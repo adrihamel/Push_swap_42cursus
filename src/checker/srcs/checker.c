@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:51:29 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 23:12:03 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/20 17:57:31 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,9 @@ int	main(int argc, char *argv[])
 {
 	t_program		prg;
 
-	if (--argc < 1 && argc == 1)
+	if (--argc < 1 && (argc == 1 || argc < 2))
 		return (0);
-	prg.debug = 0;
-	if (!ft_strcmp(argv[1], "-v"))
-	{
-		prg.debug = 1;
-		if (init_stacks(--argc, &argv[2], &prg.stack_a, &prg.stack_b))
-			return (1);
-	}
-	else if (init_stacks(argc, &argv[1], &prg.stack_a, &prg.stack_b))
+	if (init_stacks(argc, &argv[1], &prg.stack_a, &prg.stack_b))
 		return (1);
 	if (init_instructions(&prg))
 		return (1);
