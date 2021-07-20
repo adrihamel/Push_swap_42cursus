@@ -6,7 +6,7 @@
 #    By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/18 16:41:40 by aguerrer          #+#    #+#              #
-#    Updated: 2021/07/20 17:20:52 by aguerrer         ###   ########.fr        #
+#    Updated: 2021/07/20 18:00:59 by aguerrer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ RED 			= \033[0;31m
 GREEN 			= \033[0;32m
 NONE 			= \033[0m
 
-all: check_libft project $(HDRS) $(NAME)
+all: check_libft project $(HDRS) $(NAME) bonus
 	@echo "Project ready"
 
 bonus:
@@ -74,14 +74,14 @@ clean:
 	@echo "\t[ $(RED)✗$(NONE) ] $(OBJSFD) directory"
 	@make -C ./libft clean
 	@make -C ./src/checker clean
-	@rm -rf checker
+	@rm -rf checker src/checker/checker
 
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@echo "\t[ $(RED)✗$(NONE) ] $(NAME) executable"
 	@make -C ./libft fclean
 	@make -C ./src/checker clean
-	@rm -rf checker
+	@rm -rf checker src/checker/checker
 
 re: fclean all
 
