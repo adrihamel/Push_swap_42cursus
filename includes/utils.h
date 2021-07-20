@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/18 20:31:26 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/20 17:24:23 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/20 22:51:31 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_fun {
 }				t_fun;
 
 int				*get_stack(char **input, int *len);
-t_opt			get_opt(int *ac, char ***av, int get_stream, t_file **stream);
+t_opt			get_opt(int *ac, char ***av);
 t_fun			*initialize_fun_list(void);
 void			delete_funlist(t_fun *fun_list);
 int				follow_instructions(t_stack *stack, t_fun *fun_list, \
@@ -62,5 +62,6 @@ void			rrr(t_stack *stack, t_opt opt);
 void			print_instr(char *instr, t_opt opt);
 void			print_a(t_stack stack, t_opt opt, int imin, int imax);
 void			print_b(t_stack stack, t_opt opt, int imin, int imax);
+
 
 #endif

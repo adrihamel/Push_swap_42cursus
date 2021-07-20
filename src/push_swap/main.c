@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 17:59:19 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 19:08:38 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/20 22:50:52 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char *argv[])
 	t_opt	opt;
 	t_fun	*fun_list;
 
-	opt = get_opt(&argc, &argv, 0, NULL);
+	opt = get_opt(&argc, &argv);
 	if (opt == NONE)
 		opt = INSTR_ONLY;
 	if (opt == ERROR || argc == 0)
