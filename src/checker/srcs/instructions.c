@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:59:28 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 23:02:10 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/21 15:08:44 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	free_instructions(t_instruction *instructions)
 }
 
 void	execute_instructions(t_instruction *instr, t_stack *stack_a, \
-	   						t_stack *stack_b, int debug)
+	   						t_stack *stack_b)
 {
 	while (instr)
 	{
@@ -46,8 +46,6 @@ void	execute_instructions(t_instruction *instr, t_stack *stack_a, \
 			reverse_rotate_stack(stack_a);
 		if (!ft_strcmp(instr->line, "rrb") || !ft_strcmp(instr->line, "rrr"))
 			reverse_rotate_stack(stack_b);
-		if (debug)
-			print_debug_instruction(instr, stack_a, stack_b);
 		instr = instr->next;
 	}
 }

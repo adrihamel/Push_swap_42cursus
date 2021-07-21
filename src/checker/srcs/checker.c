@@ -6,11 +6,19 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:51:29 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/20 17:57:31 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/21 15:14:16 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+int	free_prg(t_program *prg)
+{
+	free_instructions(prg->instr);
+	free(prg->stack_a.array);
+	free(prg->stack_b.array);
+	return (0);
+}
 
 int	is_stack_ordered(t_stack *stack)
 {
@@ -72,11 +80,7 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (init_instructions(&prg))
 		return (1);
-	if (prg.debug)
-		print_instructions(prg.instr);
-	if (prg.debug)
-		print_stacks(&prg.stack_a, &prg.stack_b);
-	execute_instructions(prg.instr, &prg.stack_a, &prg.stack_b, prg.debug);
+	execute_instructions(prg.instr, &prg.stack_a, &prg.stack_b);
 	if (is_stack_ordered(&prg.stack_a) || prg.stack_b.size)
 		write(STDOUT_FILENO, "KO\n", 3);
 	else

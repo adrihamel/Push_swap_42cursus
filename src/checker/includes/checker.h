@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 22:08:24 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 22:10:38 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/21 15:10:36 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@
 # define _RED		"\x1b[31m"
 # define _YELLOW	"\x1b[33m"
 # define _GREEN		"\x1b[32m"
-
-# ifndef DEBUG
-#  define DEBUG 0
-# endif
 
 typedef struct s_stack
 {
@@ -42,7 +38,6 @@ typedef struct s_program
 	t_stack			stack_a;
 	t_stack			stack_b;
 	t_instruction	*instr;
-	int				debug;
 }					t_program;
 
 int					stack_contains(t_stack *stack, int num);
@@ -57,7 +52,7 @@ void				swap_stack(t_stack *stack);
 
 void				free_instructions(t_instruction *instructions);
 void				execute_instructions(t_instruction *instr, \
-	   					t_stack *stack_a, t_stack *stack_b, int debug);
+	   					t_stack *stack_a, t_stack *stack_b);
 int					add_instruction(t_instruction **intructions, char *line);
 int					get_instruction(t_instruction **instructions);
 

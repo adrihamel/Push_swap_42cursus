@@ -6,7 +6,7 @@
 #    By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/19 22:10:51 by aguerrer          #+#    #+#              #
-#    Updated: 2021/07/19 22:19:32 by aguerrer         ###   ########.fr        #
+#    Updated: 2021/07/21 15:12:21 by aguerrer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,7 @@ DIR_HEADERS =	./includes/
 DIR_SRCS	=	./srcs/
 DIR_OBJS	=	./compiled_srcs/
 
-SRC			=	checker.c init_stacks.c operations.c instructions.c utils.c \
-				print.c debug.c
+SRC			=	checker.c init_stacks.c operations.c instructions.c utils.c	
 
 SRCS		=	$(SRC)
 

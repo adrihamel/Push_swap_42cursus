@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:08:41 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/20 23:12:56 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/20 23:39:31 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	get_number(int *nbr, char ***argv)
 	while (***argv >= '0' && ***argv <= '9')
 	{
 		if (*nbr > INT_MAX / 10 || (*nbr == INT_MAX / 10 && (***argv > '8' \
-				|| (***argv == '8' && sign == 1))))
+						|| (***argv == '8' && sign == 1))))
 			return (0);
 		else if (*nbr == INT_MAX / 10 && ***argv == '8' && sign == -1)
 		{
