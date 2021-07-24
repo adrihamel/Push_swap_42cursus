@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:24:50 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/24 13:43:43 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/24 18:11:08 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ static int	part(int *array, int len)
 {
 	int		iinf;
 	int		isup;
-	int		*tmp;
+	int		tmp[4000];
 	int		i;
 
-	tmp = (int *)malloc(len * sizeof(int));
 	iinf = 0;
 	isup = len - 1;
 	i = -1;
@@ -34,7 +33,6 @@ static int	part(int *array, int len)
 	i = -1;
 	while (++i < len)
 		array[i] = tmp[i];
-	free(tmp);
 	return (iinf);
 }
 
