@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:24:50 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/19 19:04:06 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/24 13:43:43 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static int	part(int *array, int len)
 	i = -1;
 	while (++i < len)
 		array[i] = tmp[i];
+	free(tmp);
 	return (iinf);
 }
 
