@@ -6,7 +6,7 @@
 /*   By: aguerrer </var/mail/aguerrer>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:08:41 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/07/20 23:39:31 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/07/26 18:32:42 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	go_to_start(char ***argv)
 	{
 		if (!***argv)
 			(*argv)++;
-		else if (***argv == ' ' || ***argv == '\t')
+		else if (***argv == ' ' || ***argv == '\t' || ***argv == '+')
 			(**argv)++;
 		else
 			return (0);
